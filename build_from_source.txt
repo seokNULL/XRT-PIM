@@ -1,0 +1,5 @@
+#Build xrt.deb
+ cd build && ./build.sh -noalveo
+
+#Install package
+ sudo dpkg -i xrt.deb
