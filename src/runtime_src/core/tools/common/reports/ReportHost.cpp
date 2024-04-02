@@ -44,7 +44,7 @@ ReportHost::getPropertyTree20202( const xrt_core::device * /*_pDevice*/,
 
   auto dev_pt = XBUtilities::get_available_devices(m_is_user);
   pt.add_child("devices", dev_pt);
-
+  // printf("DBG: getPropertyTree20202()\n");
   // There can only be 1 root node
   _pt.add_child("host", pt);
 }
@@ -162,7 +162,7 @@ ReportHost::writeReport(const xrt_core::device* /*_pDevice*/,
   const boost::property_tree::ptree& available_devices = _pt.get_child("host.devices", empty_ptree);
 
   if (available_devices.empty())
-    _output << "  0 devices found" << std::endl;
+    _output << "  0 devices found" << std::endl<<"Custom build test(S.Y.)" << std::endl;
 
   printAlveoDevices(available_devices, _output);
   printRyzenDevices(available_devices, _output);

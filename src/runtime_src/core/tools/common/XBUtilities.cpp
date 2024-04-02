@@ -86,6 +86,7 @@ boost::property_tree::ptree
 XBUtilities::get_available_devices(bool inUserDomain)
 {
   xrt_core::device_collection deviceCollection;
+  // printf("DBG: get_available_devices()\n");
   collect_devices(std::set<std::string> {"_all_"}, inUserDomain, deviceCollection);
   boost::property_tree::ptree pt;
   for (const auto & device : deviceCollection) {
@@ -318,10 +319,11 @@ XBUtilities::collect_devices( const std::set<std::string> &_deviceBDFs,
                               xrt_core::device_collection &_deviceCollection)
 {
   // -- If the collection is empty then do nothing
+  // printf("DBG: collect_devices()\n");
   if (_deviceBDFs.empty())
     return;
 
-  // -- Collect all of devices if the "all" option is used...anywhere in the collection
+  // -- Collect all of devices if the "all" option is used...anywh!ere in the collection
   if (_deviceBDFs.find("_all_") != _deviceBDFs.end()) {
     xrt_core::device::id_type total = 0;
     try {
