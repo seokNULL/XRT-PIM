@@ -8,6 +8,8 @@
 #include "pcidev.h"
 #include "pcidrv_xclmgmt.h"
 #include "pcidrv_xocl.h"
+#include "pcidrv_xdma.h"
+
 #include "core/common/module_loader.h"
 #include "core/common/query_requests.h"
 
@@ -142,6 +144,7 @@ system_linux()
   driver_list::append(std::make_shared<pci::drv_xocl>());
   driver_list::append(std::make_shared<pci::drv_xclmgmt>());
 
+  driver_list::append(std::make_shared<pci::drv_xdma>());
   // Load driver plug-ins. Driver list will be updated during loading.
   // Don't need to die on a plug-in loading failure.
   try {
